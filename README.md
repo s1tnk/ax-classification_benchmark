@@ -10,7 +10,7 @@ Environment
 ## Model conversion
 This runs on Ubuntu PC.
 Download the model from Pytorch and perform static int8 quantization.
-
+After this,Convert with Pulsar2. See sample mobilenetv2.
 
 ```
 $ pip3 install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cpu
