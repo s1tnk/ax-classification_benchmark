@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # モデルが格納されているフォルダ
-ONNX_FOLDER="models"
+ONNX_FOLDER="onnx_models"
 # 推論に使用する画像
 IMAGE_PATH="cat.jpg"
 # 実行するPythonスクリプト
