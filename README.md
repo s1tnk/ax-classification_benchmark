@@ -9,7 +9,7 @@ Environment
 
 ## Model conversion
 This runs on Ubuntu PC.
-Download the model from Pytorch and perform int8 quantization.
+Download the model from Pytorch and perform static int8 quantization.
 
 
 ```
