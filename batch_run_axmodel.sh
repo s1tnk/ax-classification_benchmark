@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # モデルが格納されているフォルダ
-ONNX_FOLDER="axmodels_npu2"
+ONNX_FOLDER="axmodels_npu1"
 # 推論に使用する画像
 IMAGE_PATH="cat.jpg"
 # 実行するPythonスクリプト
