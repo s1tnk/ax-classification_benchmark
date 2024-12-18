@@ -37,7 +37,7 @@ root@m5stack-LLM:# ./batch_run_axmodel.sh
 
 
 ## Result 
-
+This is Process Time[msec]
 
 | Model Name | CPU Process(onnxruntime) | CPU Process(onnxruntime) | NPU Process(pyaxengine) | NPU Process(pyaxengine) |
 |------------|-------------------------|-------------------------|----------------------|----------------------|
