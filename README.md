@@ -29,8 +29,10 @@ $ python onnx_quantize_static_image_batch.py
 This runs on M5Stack Module-LLM.
 
 ```
-# root@LLM ./batch_run_onnx.sh
-# root@LLM ./batch_run_axmodel.sh
+root@m5stack-LLM:# wget https://github.com/AXERA-TECH/pyaxengine/releases/download/0.0.1rc3/axengine-0.0.1-py3-none-any.whl
+root@m5stack-LLM:# pip install axengine-0.0.1-py3-none-any.whl
+root@m5stack-LLM:# ./batch_run_onnx.sh
+root@m5stack-LLM:# ./batch_run_axmodel.sh
 ```
 
 ![image](https://github.com/user-attachments/assets/63c68f97-feb2-4131-b449-8281e3a005f3)
