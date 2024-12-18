@@ -59,4 +59,7 @@ This is Process Time[msec]
 | vgg16 | 5141.4 | 2620.2 | 35.9 | 32.0 |
 | vgg19 | 6408.4 | 3268.9 | 39.9 | 35.2 |
 
+## Note:
 
+Since the first execution of PyAXEngine was slow, I measured the execution time of the 2nd to 9th executions. See below.  
+https://github.com/AXERA-TECH/pyaxengine/issues/17  
