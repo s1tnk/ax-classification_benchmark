@@ -85,8 +85,18 @@ def main(model_path, image_path, target_size, crop_size, k, backend='auto', devi
     
     # 入力名を取得して推論を実行
         input_name = session.get_inputs()[0].name
-        output = session.run(None, {input_name: input_tensor})
+        output = session.run(None, {input_name: input_tensor.tobytes()})
     
+    # （正しく推論しているか確認するため）
+    # Get top k predictions
+        top_k_indices, top_k_scores = get_top_k_predictions(output, k)
+
+    # Print the results
+        print("  ------------------------------------------------------")
+        print(f"  Top {k} Predictions:")
+        for i in range(k):
+            print(f"    Class Index: {top_k_indices[i]:>3}, Score: {top_k_scores[i]:.3f}")
+
     # 推論時間を計測
         inference_time = (time.perf_counter() - inference_start) * 1000  # ミリ秒に変換
         total_inference_time += inference_time
