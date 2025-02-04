@@ -85,7 +85,7 @@ def main(model_path, image_path, target_size, crop_size, k, backend='auto', devi
     
     # 入力名を取得して推論を実行
         input_name = session.get_inputs()[0].name
-        output = session.run(None, {input_name: input_tensor.tobytes()})
+        output = session.run(None, {input_name: input_tensor})
     
     # （正しく推論しているか確認）
         if False:
