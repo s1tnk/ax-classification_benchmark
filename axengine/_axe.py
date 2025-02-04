@@ -17,6 +17,7 @@ from ._axe_types import VNPUType, ModelType, ChipType
 from ._base_session import Session, SessionOptions
 from ._node import NodeArg
 
+
 __all__: ["AXEngineSession"]
 
 _is_sys_initialized = False
@@ -336,7 +337,7 @@ class AXEngineSession(Session):
     def run(
             self,
             output_names: list[str],
-            input_feed: dict[str, np.ndarray],
+            input_feed: dict[str, bytes],
             run_options=None
     ):
         self._validate_input(input_feed)
@@ -349,21 +350,10 @@ class AXEngineSession(Session):
         for key, npy in input_feed.items():
             for i, one in enumerate(self.get_inputs()):
                 if one.name == key:
-                    assert (
-                            list(one.shape) == list(npy.shape) and one.dtype == npy.dtype
-                    ), f"model inputs({key}) expect shape {one.shape} and dtype {one.dtype}, however gets input with shape {npy.shape} and dtype {npy.dtype}"
-
-                    if not (
-                            not npy.flags.c_contiguous
-                            and npy.flags.f_contiguous
-                            and npy.flags.contiguous
-                    ):
-                        npy = np.ascontiguousarray(npy)
-                    npy_ptr = engine_cffi.cast("void *", npy.ctypes.data)
-
                     engine_cffi.memmove(
-                        self._io[0].pInputs[i].pVirAddr, npy_ptr, npy.nbytes
+                        self._io[0].pInputs[i].pVirAddr, npy, len(npy)
                     )
+
                     sys_lib.AX_SYS_MflushCache(
                         self._io[0].pInputs[i].phyAddr,
                         self._io[0].pInputs[i].pVirAddr,
