@@ -5,7 +5,7 @@ ONNX_FOLDER="ax_models"
 # 推論に使用する画像
 IMAGE_PATH="cat.jpg"
 # 実行するPythonスクリプト
-SCRIPT_PATH="classification_run_ax.py"
+SCRIPT_PATH="classification_run_ax_npu.py"
 # ログファイル名
 LOG_FILE="ax_execution_log.txt"
 
