@@ -347,11 +347,11 @@ class AXEngineSession(Session):
             output_names = [o.name for o in self.get_outputs()]
 
         # fill model io
-        for key, npy in input_feed.items():
+        for key, buf in input_feed.items():
             for i, one in enumerate(self.get_inputs()):
                 if one.name == key:
                     engine_cffi.memmove(
-                        self._io[0].pInputs[i].pVirAddr, npy, len(npy)
+                        self._io[0].pInputs[i].pVirAddr, buf, len(buf)
                     )
 
                     sys_lib.AX_SYS_MflushCache(
